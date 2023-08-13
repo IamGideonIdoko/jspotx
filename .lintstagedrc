@@ -1,4 +1,3 @@
 {
-  "src/**/!(*env).js": "pnpm lint",
-  "src/**/*.(jsx|ts|tsx)": "pnpm lint"
+  "src/**/*.(js|mjs|jsx|ts|tsx)": "pnpm lint"
 }
