@@ -1,0 +1,7 @@
+.eslintcache
+.github/
+node_modules/
+build/
+next.config.js
+postcss.config.js
+tailwind.config.js

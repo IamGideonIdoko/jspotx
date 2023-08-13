@@ -1,8 +1,4 @@
 .main {
   min-height: 100vh;
   text-align: center;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
 }
