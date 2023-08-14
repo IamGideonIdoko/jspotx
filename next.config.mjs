@@ -6,7 +6,7 @@ await import('./src/env.mjs');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   experimental: {
     serverComponentsExternalPackages: ['react-bootstrap'],
   },

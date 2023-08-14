@@ -42,3 +42,12 @@ a {
 .soft-border {
   border: 0.9px solid rgba(0, 0, 0, 0.1) !important;
 }
+
+.firebaseui-idp-list,
+.firebaseui-idp-list li {
+  margin: 0 !important;
+}
+
+.firebaseui-idp-list button {
+  box-shadow: none;
+}
