@@ -1,4 +1,74 @@
 .main {
-  min-height: 100vh;
-  text-align: center;
+  height: 100vh;
+  /* padding-top: 58px; */
+  padding-top: 6rem;
+}
+
+.leftColumn,
+.rightColumn {
+  height: 100% !important;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.leftColumn {
+  max-width: 20rem;
+  height: 100% !important;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.rightColumn {
+  /*  */
+}
+
+.leftColumn::-webkit-scrollbar,
+.rightColumn::-webkit-scrollbar {
+  display: none;
+}
+
+.accordionHeader > button {
+  outline: none !important;
+  background-color: white !important;
+  box-shadow: none !important;
+  font-weight: 500;
+}
+
+.cardImageWrapper {
+  width: 4rem;
+  height: 4rem;
+  overflow: hidden;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.cardImageWrapper img {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.cardTitle {
+  font-size: 16px !important;
+}
+
+.cardBadge {
+  background-color: #eff5fd !important;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.cardDescription {
+  font-size: 13px !important;
+  color: #00000080;
+}
+
+.cardCompany {
+  font-size: 14px !important;
+  color: #00000080;
 }
