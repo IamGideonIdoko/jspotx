@@ -5,7 +5,6 @@ import 'firebase/compat/auth';
 import appConfig from '@/config';
 
 if (!firebase.apps.length) {
-  console.log('Firebase initialized');
   firebase.initializeApp(appConfig.firebase);
 }
 
