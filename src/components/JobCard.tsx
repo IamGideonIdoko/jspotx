@@ -39,7 +39,7 @@ const JobCard: FC<{ job: Job; center?: boolean }> = ({ job, center }) => {
           <CardText className={`font-weight-light ${styles.cardCompany} mb-0 pb-0`}>
             {job.created_at ? dayjs().to(job.created_at.toDate().toISOString()) : ''}
           </CardText>
-          <SaveButton />
+          <SaveButton jobId={job.id} />
         </Stack>
       </CardBody>
     </Card>

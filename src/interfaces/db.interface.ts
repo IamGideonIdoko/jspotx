@@ -10,3 +10,9 @@ export interface Job {
   category?: 'remote' | 'onsite' | 'hybrid';
   type?: 'full-time' | 'part-time' | 'internship' | 'contract';
 }
+
+export interface Bookmark {
+  userId: string;
+  jobId: string;
+  created_at: Timestamp;
+}
