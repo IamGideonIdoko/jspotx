@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { /* Inter, */ Nunito } from 'next/font/google';
 import SSRProvider from 'react-bootstrap/SSRProvider';
 import CustomNavbar from '@/components/CustomNavbar';
+import { JobContextProvider } from '@/context/job.context';
 
 // const inter = Inter({ subsets: ['latin'] });
 const nunito = Nunito({ subsets: ['latin'] });
@@ -18,8 +19,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <SSRProvider>
       <html lang="en">
         <body className={nunito.className}>
-          <CustomNavbar />
-          {children}
+          <JobContextProvider>
+            <CustomNavbar />
+            {children}
+          </JobContextProvider>
         </body>
       </html>
     </SSRProvider>

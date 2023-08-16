@@ -1,14 +1,32 @@
 'use client';
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Carousel, CarouselItem } from '@/composables/bootstrap';
 import JobCard from './JobCard';
+import { JobContext } from '@/context/job.context';
+import { useJobs } from '@/hooks/db.hook';
 
 const JobCarousel = () => {
+  const { state, dispatch } = useContext(JobContext);
   const [index, setIndex] = useState(0);
+  const [jobs, loading, error] = useJobs();
 
   const handleSelect = (selectedIndex: number) => {
     setIndex(selectedIndex);
   };
+
+  useEffect(() => {
+    if (!loading && jobs) {
+      dispatch({
+        type: 'CREATE',
+        payload: jobs.docs.map((doc) => ({ ...doc.data(), id: doc.id })),
+      });
+    }
+  }, [loading, jobs, dispatch]);
+
+  console.log('context: ', state);
+  if (loading) return <p className="text-center">Loading Jobs...</p>;
+  if (error) return <p className="text-center">Something went wrong</p>;
+  if (state.currentJobs.length === 0) return null;
   return (
     <Carousel
       activeIndex={index}
@@ -19,15 +37,17 @@ const JobCarousel = () => {
       wrap={false}
       className="mt-5"
     >
-      <CarouselItem data-bs-theme="light">
-        <JobCard center />
-      </CarouselItem>
-      <Carousel.Item data-bs-theme="light">
+      {state.currentJobs.map((job) => (
+        <CarouselItem data-bs-theme="light" key={job.id}>
+          <JobCard job={job} center />
+        </CarouselItem>
+      ))}
+      {/* <Carousel.Item data-bs-theme="light">
         <JobCard center />
       </Carousel.Item>
       <Carousel.Item data-bs-theme="light">
         <JobCard center />
-      </Carousel.Item>
+      </Carousel.Item> */}
     </Carousel>
   );
 };

@@ -3,8 +3,13 @@ import { Card, Image, CardBody, CardTitle, CardText, Stack, Badge } from '@/comp
 import defaultImage from '@/assets/images/default_image.jpg';
 import styles from '@/styles/home.module.css';
 import SaveButton from '@/composables/SaveButton';
+import { Job } from '@/interfaces/db.interface';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
-const JobCard: FC<{ center?: boolean }> = ({ center }) => {
+dayjs.extend(relativeTime);
+
+const JobCard: FC<{ job: Job; center?: boolean }> = ({ job, center }) => {
   return (
     <Card style={{ width: '18rem' }} className={`soft-border mw-100 ${!!center ? 'mx-auto' : ''}`}>
       <CardBody>
@@ -15,24 +20,25 @@ const JobCard: FC<{ center?: boolean }> = ({ center }) => {
             </Stack>
           </Stack>
           <Stack>
-            <CardTitle className={`${styles.cardTitle}`}>🔥 Quality Assurance Tester Manual Intern</CardTitle>
+            <CardTitle className={`${styles.cardTitle}`}>🔥 {job.title ?? ''}</CardTitle>
             <Stack direction="horizontal" className="align-items-between" gap={2}>
-              <CardText className={`font-weight-light text-monospace mb-0 ${styles.cardCompany}`}>Google</CardText>
+              <CardText className={`font-weight-light text-monospace mb-0 ${styles.cardCompany}`}>
+                {job.company ?? ''}
+              </CardText>
               <CardText className={`mb-0 ${styles.cardCompany}`}>•</CardText>
-              <CardText className={`font-weight-light ${styles.cardCompany}`}>Jarkata Pusat</CardText>
+              <CardText className={`font-weight-light ${styles.cardCompany}`}>{job.location ?? ''}</CardText>
             </Stack>
           </Stack>
         </Stack>
         <Stack direction="horizontal" className="mb-3" gap={2}>
-          <Badge className={`${styles.cardBadge}`}>Fulltime</Badge>
-          <Badge className={`${styles.cardBadge}`}>Onsite</Badge>
-          <Badge className={`${styles.cardBadge}`}>Internship</Badge>
+          <Badge className={`${styles.cardBadge}`}>{job.type ?? ''}</Badge>
+          <Badge className={`${styles.cardBadge}`}>{job.category ?? ''}</Badge>
         </Stack>
-        <CardText className={`${styles.cardDescription}`}>
-          Some quick example text to build on the card title and make up the bulk of the content.
-        </CardText>
+        <CardText className={`${styles.cardDescription}`}>{job.description ?? ''}</CardText>
         <Stack direction="horizontal" className="justify-content-between align-items-center">
-          <CardText className={`font-weight-light ${styles.cardCompany} mb-0 pb-0`}>2 days ago</CardText>
+          <CardText className={`font-weight-light ${styles.cardCompany} mb-0 pb-0`}>
+            {job.created_at ? dayjs().to(job.created_at.toDate().toISOString()) : ''}
+          </CardText>
           <SaveButton />
         </Stack>
       </CardBody>
