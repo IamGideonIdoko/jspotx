@@ -1,5 +1,5 @@
 'use client';
-import { Navbar, Dropdown, Accordion, Form, Card } from 'react-bootstrap';
+import { Navbar, Dropdown, Accordion, Form, Card, Carousel } from 'react-bootstrap';
 
 export {
   Button,
@@ -14,6 +14,7 @@ export {
   Card,
   Stack,
   Badge,
+  Carousel,
 } from 'react-bootstrap';
 
 export const NavbarBrand = Navbar.Brand;
@@ -35,3 +36,5 @@ export const CardImg = Card.Img;
 export const CardBody = Card.Body;
 export const CardTitle = Card.Title;
 export const CardText = Card.Text;
+
+export const CarouselItem = Carousel.Item;

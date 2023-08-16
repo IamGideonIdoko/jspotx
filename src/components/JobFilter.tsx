@@ -14,7 +14,7 @@ import styles from '@/styles/home.module.css';
 const JobFilter = () => {
   return (
     <Stack gap={4}>
-      <Accordion alwaysOpen defaultActiveKey={['0']}>
+      {/* <Accordion alwaysOpen defaultActiveKey={['0']}>
         <AccordionItem eventKey="0" className={`soft-border`}>
           <AccordionHeader className={`${styles.accordionHeader}`}>Experience Level</AccordionHeader>
           <AccordionBody>
@@ -26,7 +26,7 @@ const JobFilter = () => {
             </Form>
           </AccordionBody>
         </AccordionItem>
-      </Accordion>
+      </Accordion> */}
 
       <Accordion alwaysOpen defaultActiveKey={['0']}>
         <AccordionItem eventKey="0" className={`soft-border`}>

@@ -1,11 +1,12 @@
+import type { FC } from 'react';
 import { Card, Image, CardBody, CardTitle, CardText, Stack, Badge } from '@/composables/bootstrap';
 import defaultImage from '@/assets/images/default_image.jpg';
 import styles from '@/styles/home.module.css';
 import SaveButton from '@/composables/SaveButton';
 
-const JobCard = () => {
+const JobCard: FC<{ center?: boolean }> = ({ center }) => {
   return (
-    <Card style={{ width: '18rem' }} className={`soft-border mw-100`}>
+    <Card style={{ width: '18rem' }} className={`soft-border mw-100 ${!!center ? 'mx-auto' : ''}`}>
       <CardBody>
         <Stack direction="horizontal" className="mw-100 mb-3" gap={2}>
           <Stack>

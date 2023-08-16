@@ -1,7 +1,7 @@
-import { Row, Col, Stack } from '@/composables/bootstrap';
+import { Row, Col } from '@/composables/bootstrap';
 import styles from '@/styles/home.module.css';
 import JobFilter from '@/components/JobFilter';
-import JobCard from '@/components/JobCard';
+import JobCarousel from '@/components/JobCarousel';
 
 export default function Home() {
   return (
@@ -10,13 +10,9 @@ export default function Home() {
         <JobFilter />
       </Col>
       <Col className={`${styles.rightColumn}`}>
-        <p>Showing 1,120 Jobs Quality Assurance in Jakarta</p>
-        <Stack direction="horizontal" className="flex-wrap" gap={3}>
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
-        </Stack>
+        {/* <p>Showing 1,120 Jobs Quality Assurance in Jakarta</p> */}
+        <h3>Job Spotlights</h3>
+        <JobCarousel />
       </Col>
     </Row>
   );
