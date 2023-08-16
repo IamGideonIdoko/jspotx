@@ -33,10 +33,10 @@ const JobFilter = () => {
           <AccordionHeader className={`${styles.accordionHeader}`}>Job Type</AccordionHeader>
           <AccordionBody>
             <Form>
+              <FormCheck type="checkbox" label="Fulltime" id="fulltime" className="mb-2" />
+              <FormCheck type="checkbox" label="Partime" id="parttime" className="mb-2" />
               <FormCheck type="checkbox" label="Internship" id="intership" className="mb-2" />
-              <FormCheck type="checkbox" label="Internship" id="intership" className="mb-2" />
-              <FormCheck type="checkbox" label="Internship" id="intership" className="mb-2" />
-              <FormCheck type="checkbox" label="Internship" id="intership" className="mb-2" />
+              <FormCheck type="checkbox" label="Contract" id="contract" className="mb-2" />
             </Form>
           </AccordionBody>
         </AccordionItem>
@@ -47,10 +47,9 @@ const JobFilter = () => {
           <AccordionHeader className={`${styles.accordionHeader}`}>Job Category</AccordionHeader>
           <AccordionBody>
             <Form>
-              <FormCheck type="checkbox" label="Internship" id="intership" className="mb-2" />
-              <FormCheck type="checkbox" label="Internship" id="intership" className="mb-2" />
-              <FormCheck type="checkbox" label="Internship" id="intership" className="mb-2" />
-              <FormCheck type="checkbox" label="Internship" id="intership" className="mb-2" />
+              <FormCheck type="checkbox" label="Remote" id="remote" className="mb-2" />
+              <FormCheck type="checkbox" label="Onsite" id="onsite" className="mb-2" />
+              <FormCheck type="checkbox" label="Hybrid" id="hybrid" className="mb-2" />
             </Form>
           </AccordionBody>
         </AccordionItem>
