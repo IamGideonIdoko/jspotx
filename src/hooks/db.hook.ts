@@ -6,6 +6,7 @@ import type { Query } from 'firebase/firestore';
 export const useJobs = (jobIds?: string[]) => {
   let query: firebase.firestore.Query<firebase.firestore.DocumentData> | null = firebase.firestore().collection('jobs');
   if (jobIds && jobIds.length > 0) {
+    // If array to Job IDs is passed then only fetch jobs with those ids
     query = query.where('id', 'in', jobIds);
   } else if (jobIds && jobIds.length === 0) {
     query = null;

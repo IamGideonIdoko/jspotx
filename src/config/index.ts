@@ -5,6 +5,7 @@ import { env } from '@/env.mjs';
 const NODE_ENV = process.env.NODE_ENV?.toLowerCase() || 'development';
 
 const appConfig: IAppConfig = {
+  // App configuration
   env: {
     isProd: NODE_ENV === 'production',
     isDev: NODE_ENV === 'development',

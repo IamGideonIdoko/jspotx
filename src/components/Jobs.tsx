@@ -10,6 +10,7 @@ const Jobs = () => {
   const router = useRouter();
   const [user, loading, error] = useAppAuthState();
   useEffect(() => {
+    // If user is not authenticated, redirect to home page
     if (user === null) router.push('/');
   }, [user, router]);
   const [bookmarks, bookmarksLoading, bookmarksError] = useBookmarks({ userId: `${user?.uid}` });
