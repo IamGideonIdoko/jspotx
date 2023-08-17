@@ -1,14 +1,21 @@
 'use client';
+import { useEffect } from 'react';
 import { Stack } from '@/composables/bootstrap';
 import JobCard from '@/components/JobCard';
 import { useAppAuthState } from '@/hooks/auth.hook';
 import { useBookmarks, useJobs } from '@/hooks/db.hook';
+import { useRouter } from 'next/navigation';
 
 const Jobs = () => {
+  const router = useRouter();
   const [user, loading, error] = useAppAuthState();
+  useEffect(() => {
+    if (user === null) router.push('/');
+  }, [user, router]);
   const [bookmarks, bookmarksLoading, bookmarksError] = useBookmarks({ userId: `${user?.uid}` });
   const jobIds = bookmarks?.docs.map((doc) => doc.data().jobId);
   const [bookmarkedJobs, bookmarkedJobsLoading, bookmarkedJobsError] = useJobs(jobIds ?? []);
+  if (user === null) return null;
   if (loading || bookmarksLoading || bookmarkedJobsLoading) return <>Loading bookmarks...</>;
   if (!!error || !!bookmarksError || !!bookmarkedJobsError) return <p>Something went wrong</p>;
   return (
