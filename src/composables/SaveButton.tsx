@@ -26,7 +26,7 @@ const SaveButton: FC<{ jobId: string }> = ({ jobId }) => {
             .get();
           querySnapshot.forEach((doc) => doc.ref.delete());
         } catch (err) {
-          console.log('Unbookmark error: ', err);
+          console.error('Unbookmark error: ', err);
         }
       }
     } else {
@@ -38,7 +38,7 @@ const SaveButton: FC<{ jobId: string }> = ({ jobId }) => {
             created_at: firebase.firestore.FieldValue.serverTimestamp(),
           });
         } catch (err) {
-          console.log('Bookmark error: ', err);
+          console.error('Bookmark error: ', err);
         }
       }
     }

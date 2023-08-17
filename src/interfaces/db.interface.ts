@@ -12,6 +12,7 @@ export interface Job {
 }
 
 export interface Bookmark {
+  id: string;
   userId: string;
   jobId: string;
   created_at: Timestamp;

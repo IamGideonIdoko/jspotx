@@ -23,7 +23,6 @@ const JobCarousel = () => {
     }
   }, [loading, jobs, dispatch]);
 
-  console.log('context: ', state);
   if (loading) return <p className="text-center">Loading Jobs...</p>;
   if (error) return <p className="text-center">Something went wrong</p>;
   if (state.currentJobs.length === 0) return null;
