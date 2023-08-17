@@ -8,7 +8,7 @@ export interface Job {
   location?: string;
   description?: string;
   company?: string;
-  application?: number;
+  applications?: number;
   created_at?: Timestamp;
   category?: JobCategory;
   type?: JobType;
