@@ -5,7 +5,7 @@ import JobCarousel from '@/components/JobCarousel';
 
 export default function Home() {
   return (
-    <Row className={`mx-lg-5 mx-md-2 mx-sm-1 ${styles.main}`}>
+    <Row className={`mx-lg-5 mx-md-2 mx-2 ${styles.main}`}>
       <Col className={`${styles.leftColumn} pb-3`}>
         <JobFilter />
       </Col>

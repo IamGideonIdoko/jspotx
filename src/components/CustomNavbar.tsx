@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 function CustomNavbar() {
   return (
-    <Navbar className="px-lg-5 px-md-2 px-sm-1 bg-white" fixed="top">
+    <Navbar className="px-lg-5 px-md-3 px-2 bg-white" fixed="top">
       <Link href="/">
         <NavbarBrand>JSpotX</NavbarBrand>
       </Link>

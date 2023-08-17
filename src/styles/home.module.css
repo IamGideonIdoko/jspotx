@@ -72,3 +72,9 @@
   font-size: 14px !important;
   color: #00000080;
 }
+
+@media screen and (max-width: 589px) {
+  .leftColumn {
+    display: none;
+  }
+}

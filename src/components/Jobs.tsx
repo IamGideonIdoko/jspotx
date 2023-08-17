@@ -11,11 +11,13 @@ const Jobs = () => {
   const [user, loading, error] = useAppAuthState();
   useEffect(() => {
     // If user is not authenticated, redirect to home page
-    if (user === null) router.push('/');
-  }, [user, router]);
+    if (user === null && !loading) router.push('/');
+  }, [user, router, loading]);
   const [bookmarks, bookmarksLoading, bookmarksError] = useBookmarks({ userId: `${user?.uid}` });
-  const jobIds = bookmarks?.docs.map((doc) => doc.data().jobId);
-  const [bookmarkedJobs, bookmarkedJobsLoading, bookmarkedJobsError] = useJobs(jobIds ?? []);
+  const jobIds = bookmarks?.docs.map((doc) => {
+    return doc.data().jobId;
+  });
+  const [bookmarkedJobs, bookmarkedJobsLoading, bookmarkedJobsError] = useJobs(jobIds);
   if (user === null) return null;
   if (loading || bookmarksLoading || bookmarkedJobsLoading) return <>Loading bookmarks...</>;
   if (!!error || !!bookmarksError || !!bookmarkedJobsError) return <p>Something went wrong</p>;

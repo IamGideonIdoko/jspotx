@@ -48,7 +48,7 @@ const SaveButton: FC<{ jobId: string }> = ({ jobId }) => {
       <BookmarkIcon
         fill={isBookmarked ? appConfig.theme.brandColor : 'none'}
         stroke={isBookmarked ? appConfig.theme.brandColor : '#676879'}
-        stroke-width={isBookmarked ? '0' : '1.5'}
+        strokeWidth={isBookmarked ? '0' : '1.5'}
       />
     </button>
   );
