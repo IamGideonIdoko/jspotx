@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Dispatch, createContext, useReducer } from 'react';
+import { type Dispatch, createContext, useReducer, type ReactNode } from 'react';
 import type { Job } from '@/interfaces/db.interface';
 import type { JobType, JobCategory } from '@/interfaces/db.interface';
 
@@ -44,7 +44,11 @@ const reducer = (state: State, action: Action<ActionType>) => {
         ...state,
         types: action.payload as JobType[],
         currentJobs: state.jobs.filter((job) => {
-          if ((action.payload as JobType[]).indexOf(job.type!) !== -1 && state.categories.indexOf(job.category!))
+          if (
+            (action.payload as JobType[]).indexOf(job.type!) !== -1 ||
+            state.categories.indexOf(job.category!) !== -1 ||
+            (action.payload.length === 0 && state.categories.length === 0)
+          )
             return true;
           return false;
         }),
@@ -54,7 +58,11 @@ const reducer = (state: State, action: Action<ActionType>) => {
         ...state,
         categories: action.payload as JobCategory[],
         currentJobs: state.jobs.filter((job) => {
-          if ((action.payload as JobCategory[]).indexOf(job.category!) !== -1 && state.types.indexOf(job.type!))
+          if (
+            (action.payload as JobCategory[]).indexOf(job.category!) !== -1 ||
+            state.types.indexOf(job.type!) !== -1 ||
+            (action.payload.length === 0 && state.types.length === 0)
+          )
             return true;
           return false;
         }),
@@ -72,7 +80,7 @@ export const JobContext = createContext<{
   dispatch: DispatchType;
 }>({ state: initialState, dispatch: () => null });
 
-export const JobContextProvider = ({ children }: { children: React.ReactNode }) => {
+export const JobContextProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(
     reducer as unknown as (state: State, action: Action<'UPDATE_JOBS'>) => State,
     initialState,

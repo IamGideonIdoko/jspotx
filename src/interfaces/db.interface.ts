@@ -1,6 +1,6 @@
 import type { Timestamp } from 'firebase/firestore';
 
-export type JobType = 'full-time' | 'part-time' | 'internship' | 'contract';
+export type JobType = 'fulltime' | 'parttime' | 'internship' | 'contract';
 export type JobCategory = 'remote' | 'onsite' | 'hybrid';
 export interface Job {
   id: string;
