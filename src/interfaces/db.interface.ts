@@ -1,4 +1,7 @@
 import type { Timestamp } from 'firebase/firestore';
+
+export type JobType = 'full-time' | 'part-time' | 'internship' | 'contract';
+export type JobCategory = 'remote' | 'onsite' | 'hybrid';
 export interface Job {
   id: string;
   title?: string;
@@ -7,8 +10,8 @@ export interface Job {
   company?: string;
   application?: number;
   created_at?: Timestamp;
-  category?: 'remote' | 'onsite' | 'hybrid';
-  type?: 'full-time' | 'part-time' | 'internship' | 'contract';
+  category?: JobCategory;
+  type?: JobType;
 }
 
 export interface Bookmark {

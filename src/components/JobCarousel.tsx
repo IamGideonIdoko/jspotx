@@ -17,7 +17,7 @@ const JobCarousel = () => {
   useEffect(() => {
     if (!loading && jobs) {
       dispatch({
-        type: 'CREATE',
+        type: 'UPDATE_JOBS',
         payload: jobs.docs.map((doc) => ({ ...doc.data(), id: doc.id })),
       });
     }
